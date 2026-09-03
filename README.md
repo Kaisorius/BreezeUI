@@ -50,18 +50,8 @@ MainTab:Toggle({
 })
 ```
 
-## Instructions for Dekta Exevutor
-1. Open Dekta Exevutor (or your preferred executor).
-2. Paste the installation line from above into the executor's script input.
-3. Run/Execute the script. The BreezeUI library will be loaded automatically.
-4. Use the examples in the "Usage" section to create windows, tabs, and elements.
-
-Notes:
-- GitHub renders a small copy button for fenced code blocks — use that to quickly copy the install line.
-- If your executor blocks HttpGet, enable HTTP requests or use an alternative method to fetch the script.
-
 ## Attribution
-This is a best test made by Kaiser / Kaiserious.
+This is beta made by Kaiser / Kaisorious. You may occure bug in the future. stay updated for more updates
 
 ## License
 BreezeUI is licensed under the Attribution Assurance License (AAL).
