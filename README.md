@@ -28,7 +28,7 @@ Elements:
 Button:
 
 ```lua
-local Buttob = MainTab:Button({
+local Button = MainTab:Button({
     Name = "Test Button",
     Description = "Click me",
     Callback = function()
