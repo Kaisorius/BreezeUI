@@ -24,7 +24,7 @@ Window Tab:
 local MainTab = Window:CreateTab("Main")
 ```
 
-Elements (examples separated):
+Elements:
 
 Button:
 
@@ -48,6 +48,35 @@ MainTab:Toggle({
         print("Enabled:", Value)
     end
 })
+```
+
+Full Example:
+
+```lua
+local BreezeUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kaisorius/BreezeUI/refs/heads/main/BreezeUI.lua"))()
+
+local Window = BreezeUI:CreateWindow({
+    Name = "BreezeUI",
+    Description = "My Hub"
+})
+
+local MainTab = Window:CreateTab("Main")
+
+MainTab:Button({
+    Name = "Test Button",
+    Description = "Click me",
+    Callback = function()
+        print("Clicked!")
+    end
+})
+
+MainTab:Toggle({
+    Name = "Test Toggle",
+    Description = "Enable something",
+    Callback = function(Value)
+        print("Enabled:", Value)
+    end
+}) 
 ```
 
 ## Attribution
