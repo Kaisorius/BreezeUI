@@ -79,7 +79,7 @@ MainTab:Toggle({
 ```
 
 ## Attribution
-This is beta made by Kaiser / Kaisorious. You may occure bug in the future. stay updated for more updates
+This is beta ui library made by Kaiser / Kaisorious. You may occure bug in the future. stay updated for more updates
 
 ## License
 BreezeUI is licensed under the Attribution Assurance License (AAL).
