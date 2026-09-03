@@ -2,4 +2,181 @@
 -- Offcial Code 
 -- https://github.com/Kaisorius/BreezeUI
 -- Kaiser / Kaisorius
-local a=game:GetService("Players")local b=game:GetService("TweenService")local c=a.LocalPlayer local d=c:WaitForChild("PlayerGui")local BreezeUI={}local e=Font.fromName("Montserrat",Enum.FontWeight.Bold,Enum.FontStyle.Italic)local f=Color3.fromRGB(162,162,162)local g=Color3.fromRGB(84,84,86)local h=Color3.fromRGB(12,12,14)local i=Color3.fromRGB(18,17,22)local j=Color3.fromRGB(33,32,38)local k=Color3.fromRGB(35,34,40)local l=Color3.fromRGB(25,24,30)local m=Color3.fromRGB(55,54,61)local n=Color3.fromRGB(190,190,195)local o=Color3.fromRGB(125,125,130)local p=560 local q=440 local r=.85 local s=p*r local t=q*r local function u(x,y,z)return b:Create(x,y,z)end function BreezeUI:CreateWindow(v)local Window={}local w=Instance.new("ScreenGui")w.Name="a"w.ResetOnSpawn=false w.ZIndexBehavior=Enum.ZIndexBehavior.Sibling w.Parent=d local x=Instance.new("Frame")x.Name="b"x.Size=UDim2.fromOffset(p,q)x.Position=UDim2.fromScale(.5,.5)x.AnchorPoint=Vector2.new(.5,.5)x.BackgroundColor3=h x.BorderSizePixel=0 x.Parent=w local y=Instance.new("UICorner")y.Name="c"y.CornerRadius=UDim.new(0,11)y.Parent=x local z=Instance.new("UIStroke")z.Name="d"z.Color=j z.Thickness=1.5 z.Parent=x local aa=Instance.new("UISizeConstraint")aa.Name="e"aa.MinSize=Vector2.new(400,340)aa.MaxSize=Vector2.new(650,520)aa.Parent=x local ab=Instance.new("UIAspectRatioConstraint")ab.Name="f"ab.AspectRatio=p/q ab.Parent=x local ac=Instance.new("TextLabel")ac.Name="g"ac.Position=UDim2.new(.034,0,.019,0)ac.Size=UDim2.new(.528,0,.054,0)ac.BackgroundTransparency=1 ac.Text=v.Title or"BreezeUI"ac.TextColor3=f ac.TextSize=24 ac.FontFace=e ac.TextXAlignment=Enum.TextXAlignment.Left ac.Parent=x local ad=Instance.new("TextLabel")ad.Name="h"ad.Position=UDim2.new(.037,0,.079,0)ad.Size=UDim2.new(.528,0,.054,0)ad.BackgroundTransparency=1 ad.Text=v.Description or""ad.TextColor3=g ad.TextSize=16 ad.FontFace=e ad.TextXAlignment=Enum.TextXAlignment.Left ad.Parent=x local ae=Instance.new("Frame")ae.Name="i"ae.Position=UDim2.new(1,-145,0,8)ae.Size=UDim2.fromOffset(135,35)ae.BackgroundColor3=i ae.BorderSizePixel=0 ae.Parent=x local af=Instance.new("UICorner")af.Name="j"af.CornerRadius=UDim.new(0,8)af.Parent=ae local ag=Instance.new("UIStroke")ag.Name="k"ag.Color=j ag.Thickness=1.2 ag.Parent=ae local ah=Instance.new("TextButton")ah.Name="l"ah.Size=UDim2.fromOffset(55,25)ah.Position=UDim2.fromOffset(7,5)ah.BackgroundColor3=l ah.Text="—"ah.TextColor3=f ah.TextSize=16 ah.FontFace=e ah.AutoButtonColor=false ah.Parent=ae local ai=Instance.new("UICorner")ai.Name="m"ai.CornerRadius=UDim.new(0,6)ai.Parent=ah local aj=Instance.new("TextButton")aj.Name="n"aj.Size=UDim2.fromOffset(55,25)aj.Position=UDim2.fromOffset(73,5)aj.BackgroundColor3=l aj.Text="×"aj.TextColor3=f aj.TextSize=17 aj.FontFace=e aj.AutoButtonColor=false aj.Parent=ae local ak=Instance.new("UICorner")ak.Name="o"ak.CornerRadius=UDim.new(0,6)ak.Parent=aj local al=Instance.new("TextButton")al.Name="p"al.Position=UDim2.new(.414,0,.034,0)al.Size=UDim2.new(.162,0,.06,0)al.BackgroundColor3=i al.BackgroundTransparency=1 al.Text="Open"al.TextColor3=f al.TextSize=17 al.FontFace=e al.Visible=false al.AutoButtonColor=false al.Parent=w local am=Instance.new("UICorner")am.Name="q"am.CornerRadius=UDim.new(0,8)am.Parent=al local an=Instance.new("UIStroke")an.Name="r"an.Color=j an.Thickness=1.2 an.Parent=al local ao=Instance.new("ScrollingFrame")ao.Name="s"ao.Position=UDim2.fromOffset(12,56)ao.Size=UDim2.new(0,155,1,-68)ao.BackgroundTransparency=1 ao.BorderSizePixel=0 ao.ScrollBarThickness=3 ao.AutomaticCanvasSize=Enum.AutomaticSize.Y ao.CanvasSize=UDim2.new()ao.Parent=x local ap=Instance.new("UIPadding")ap.Name="t"ap.PaddingTop=UDim.new(0,8)ap.PaddingBottom=UDim.new(0,8)ap.PaddingLeft=UDim.new(0,8)ap.PaddingRight=UDim.new(0,8)ap.Parent=ao local aq=Instance.new("UIListLayout")aq.Name="u"aq.Padding=UDim.new(0,7)aq.Parent=ao local ar=Instance.new("ScrollingFrame")ar.Name="v"ar.Position=UDim2.fromOffset(179,56)ar.Size=UDim2.new(1,-191,1,-68)ar.BackgroundTransparency=1 ar.BorderSizePixel=0 ar.ScrollBarThickness=3 ar.AutomaticCanvasSize=Enum.AutomaticSize.Y ar.CanvasSize=UDim2.new()ar.Parent=x local as=Instance.new("UIPadding")as.Name="w"as.PaddingTop=UDim.new(0,3)as.PaddingBottom=UDim.new(0,10)as.PaddingLeft=UDim.new(0,3)as.PaddingRight=UDim.new(0,5)as.Parent=ar local at=Instance.new("UIListLayout")at.Name="x"at.Padding=UDim.new(0,8)at.Parent=ar local au={}local av=false local function aw()if av then return end av=true al.Visible=false x.Visible=true x.Size=UDim2.fromOffset(s,t)x.BackgroundTransparency=1 z.Transparency=1 ac.TextTransparency=1 ad.TextTransparency=1 u(x,TweenInfo.new(.3,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{Size=UDim2.fromOffset(p,q),BackgroundTransparency=0}):Play()u(z,TweenInfo.new(.2,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Transparency=0}):Play()u(ac,TweenInfo.new(.2,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{TextTransparency=0}):Play()u(ad,TweenInfo.new(.2,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{TextTransparency=0}):Play()task.delay(.3,function()av=false end)end local function ax()if av then return end av=true u(x,TweenInfo.new(.25,Enum.EasingStyle.Quint,Enum.EasingDirection.In),{Size=UDim2.fromOffset(s,t),BackgroundTransparency=1}):Play()u(z,TweenInfo.new(.2,Enum.EasingStyle.Quad,Enum.EasingDirection.In),{Transparency=1}):Play()u(ac,TweenInfo.new(.2,Enum.EasingStyle.Quad,Enum.EasingDirection.In),{TextTransparency=1}):Play()u(ad,TweenInfo.new(.2,Enum.EasingStyle.Quad,Enum.EasingDirection.In),{TextTransparency=1}):Play()task.delay(.25,function()x.Visible=false al.Visible=true av=false end)end ah.MouseButton1Click:Connect(ax)al.MouseButton1Click:Connect(aw)aj.MouseButton1Click:Connect(function()ax()end)function Window:Destroy()w:Destroy()end function Window:Minimize()if x.Visible then ax()end end function Window:Open()if not x.Visible then aw()end end function Window:CreateTab(ay)local Tab={}local az=Instance.new("TextButton")az.Name="y"az.Size=UDim2.new(1,-16,0,40)az.BackgroundColor3=k az.BackgroundTransparency=1 az.BorderSizePixel=0 az.Text=ay az.TextColor3=g az.TextSize=16 az.FontFace=e az.AutoButtonColor=false az.Parent=ao local ba=Instance.new("UICorner")ba.Name="z"ba.CornerRadius=UDim.new(0,8)ba.Parent=az local bb=Instance.new("ScrollingFrame")bb.Name="aa"bb.Size=UDim2.fromScale(1,1)bb.BackgroundTransparency=1 bb.BorderSizePixel=0 bb.ScrollBarThickness=3 bb.AutomaticCanvasSize=Enum.AutomaticSize.Y bb.CanvasSize=UDim2.new()bb.Visible=false bb.Parent=ar local bc=Instance.new("UIPadding")bc.Name="ab"bc.PaddingTop=UDim.new(0,3)bc.PaddingBottom=UDim.new(0,10)bc.PaddingLeft=UDim.new(0,3)bc.PaddingRight=UDim.new(0,5)bc.Parent=bb local bd=Instance.new("UIListLayout")bd.Name="ac"bd.Padding=UDim.new(0,8)bd.Parent=bb au[ay]={az,bb}function Tab:Select()for _,be in pairs(au)do be[2].Visible=false u(be[1],TweenInfo.new(.15,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{BackgroundTransparency=1,TextColor3=g}):Play()end bb.Visible=true u(az,TweenInfo.new(.15,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{BackgroundTransparency=.6,TextColor3=f}):Play()end function Tab:Button(bf)local Button={}local bg=Instance.new("Frame")bg.Name="ad"bg.Size=UDim2.new(1,0,0,58)bg.BackgroundColor3=i bg.BorderSizePixel=0 bg.Parent=bb local bh=Instance.new("UICorner")bh.Name="ae"bh.CornerRadius=UDim.new(0,9)bh.Parent=bg local bi=Instance.new("UIStroke")bi.Name="af"bi.Color=j bi.Thickness=1.4 bi.Parent=bg local bj=Instance.new("TextLabel")bj.Name="ag"bj.Position=UDim2.fromOffset(12,7)bj.Size=UDim2.new(1,-85,0,23)bj.BackgroundTransparency=1 bj.Text=bf.Title or"Button"bj.TextColor3=f bj.TextSize=18 bj.FontFace=e bj.TextXAlignment=Enum.TextXAlignment.Left bj.Parent=bg local bk=Instance.new("TextLabel")bk.Name="ah"bk.Position=UDim2.fromOffset(12,30)bk.Size=UDim2.new(1,-85,0,20)bk.BackgroundTransparency=1 bk.Text=bf.Description or""bk.TextColor3=g bk.TextSize=14 bk.FontFace=e bk.TextXAlignment=Enum.TextXAlignment.Left bk.Parent=bg local bl=Instance.new("TextButton")bl.Name="ai"bl.Position=UDim2.new(1,-70,.5,-15)bl.Size=UDim2.fromOffset(60,30)bl.BackgroundColor3=l bl.Text="Run"bl.TextColor3=f bl.TextSize=14 bl.FontFace=e bl.AutoButtonColor=false bl.Parent=bg local bm=Instance.new("UICorner")bm.Name="aj"bm.CornerRadius=UDim.new(0,7)bm.Parent=bl Button.Value=false function Button:GetValue()return Button.Value end function Button:SetValue(bn)Button.Value=bn end bl.MouseButton1Click:Connect(function()Button.Value=true if bf.Callback then bf.Callback()end end)return Button end function Tab:Toggle(bo)local Toggle={}local bp=Instance.new("Frame")bp.Name="ak"bp.Size=UDim2.new(1,0,0,58)bp.BackgroundColor3=i bp.BorderSizePixel=0 bp.Parent=bb local bq=Instance.new("UICorner")bq.Name="al"bq.CornerRadius=UDim.new(0,9)bq.Parent=bp local br=Instance.new("UIStroke")br.Name="am"br.Color=j br.Thickness=1.4 br.Parent=bp local bs=Instance.new("TextLabel")bs.Name="an"bs.Position=UDim2.fromOffset(12,7)bs.Size=UDim2.new(1,-80,0,23)bs.BackgroundTransparency=1 bs.Text=bo.Title or"Toggle"bs.TextColor3=f bs.TextSize=18 bs.FontFace=e bs.TextXAlignment=Enum.TextXAlignment.Left bs.Parent=bp local bt=Instance.new("TextLabel")bt.Name="ao"bt.Position=UDim2.fromOffset(12,30)bt.Size=UDim2.new(1,-80,0,20)bt.BackgroundTransparency=1 bt.Text=bo.Description or""bt.TextColor3=g bt.TextSize=14 bt.FontFace=e bt.TextXAlignment=Enum.TextXAlignment.Left bt.Parent=bp local bu=Instance.new("TextButton")bu.Name="ap"bu.Position=UDim2.new(1,-56,.5,-13)bu.Size=UDim2.fromOffset(48,26)bu.BackgroundColor3=l bu.Text=""bu.AutoButtonColor=false bu.Parent=bp local bv=Instance.new("UICorner")bv.Name="aq"bv.CornerRadius=UDim.new(1,0)bv.Parent=bu local bw=Instance.new("Frame")bw.Name="ar"bw.Size=UDim2.fromOffset(18,18)bw.Position=UDim2.new(0,4,.5,0)bw.AnchorPoint=Vector2.new(0,.5)bw.BackgroundColor3=o bw.BorderSizePixel=0 bw.Parent=bu local bx=Instance.new("UICorner")bx.Name="as"bx.CornerRadius=UDim.new(1,0)bx.Parent=bw Toggle.Value=bo.Default or false local function by(bz)Toggle.Value=bz u(bu,TweenInfo.new(.15,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{BackgroundColor3=bz and m or l}):Play()u(bw,TweenInfo.new(.15,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{BackgroundColor3=bz and n or o,Position=bz and UDim2.new(1,-22,.5,0)or UDim2.new(0,4,.5,0)}):Play()if bo.Callback then bo.Callback(bz)end end function Toggle:GetValue()return Toggle.Value end function Toggle:SetValue(ca)by(ca)end by(Toggle.Value)bu.MouseButton1Click:Connect(function()by(not Toggle.Value)end)return Toggle end Tab:Select()return Tab end task.defer(aw)return Window end return BreezeUI
+local P=game:GetService("Players")local T=game:GetService("TweenService")local L=P.LocalPlayer local U=Instance.new local D2=UDim2.new local D=UDim.new local V2=Vector2.new local C3=Color3.fromRGB local TI=TweenInfo.new local ES=Enum.EasingStyle local ED=Enum.EasingDirection local B=BreezeUI or{}local F=Font.fromName("Montserrat",Enum.FontWeight.Bold,Enum.FontStyle.Italic)local G=L:WaitForChild("PlayerGui")
+local w=C3(162,162,162)local d=C3(84,84,86)local mb=C3(12,12,14)local cb=C3(18,17,22)local sc=C3(33,32,38)local stc=C3(35,34,40)local rn=C3(25,24,30)local tOn=C3(55,54,61)local kOn=C3(190,190,195)local kOff=C3(125,125,130)
+local FW,FH,SS=560,440,.85 local SW,SH=FW*SS,FH*SS
+local function mk(cls,props,parent)local o=U(cls)for k,v in pairs(props)do o[k]=v end if parent then o.Parent=parent end return o end
+local function tw(obj,dur,style,dir,props)local t=T:Create(obj,TI(dur,style,dir),props)t:Play()return t end
+function B:CreateWindow(o)
+o=o or{}
+local W={}
+local sg=mk("ScreenGui",{Name="BreezeUI",ResetOnSpawn=false,ZIndexBehavior=Enum.ZIndexBehavior.Sibling},G)
+local fr=mk("Frame",{Name="Main",AnchorPoint=V2(.5,.5),BackgroundColor3=mb,BorderSizePixel=0,Position=D2.fromScale(.5,.5),Size=D2(0,560,0,440)},sg)
+mk("UISizeConstraint",{MinSize=V2(400,340),MaxSize=V2(650,520)},fr)
+mk("UIAspectRatioConstraint",{AspectRatio=560/440},fr)
+mk("UICorner",{CornerRadius=D(0,11)},fr)
+local st=mk("UIStroke",{Color=sc,Thickness=1.5},fr)
+local ti=mk("TextLabel",{BackgroundTransparency=1,FontFace=F,Position=D2(.034,0,.019,0),Size=D2(.528,0,.054,0),Text=o.Name or o.Title or"BreezeUI",TextColor3=w,TextSize=24,TextTruncate=Enum.TextTruncate.AtEnd,TextXAlignment=Enum.TextXAlignment.Left,TextYAlignment=Enum.TextYAlignment.Top},fr)
+local de=mk("TextLabel",{BackgroundTransparency=1,FontFace=F,Position=D2(.037,0,.079,0),Size=D2(.528,0,.054,0),Text=o.Description or"Simple UI Library",TextColor3=d,TextSize=16,TextTruncate=Enum.TextTruncate.AtEnd,TextXAlignment=Enum.TextXAlignment.Left,TextYAlignment=Enum.TextYAlignment.Top},fr)
+local f=mk("Frame",{BackgroundTransparency=1,Position=D2(1,-145,0,8),Size=D2(0,135,0,35)},fr)
+mk("UIAspectRatioConstraint",{AspectRatio=135/35},f)
+mk("UIStroke",{Color=sc,Thickness=1.6},f)
+mk("UICorner",{CornerRadius=D(0,12)},f)
+local mn=mk("TextButton",{BackgroundColor3=rn,BorderSizePixel=0,FontFace=F,TextSize=24,Position=D2(0,8,0,5),Size=D2(0,55,0,25),Text="-",TextColor3=d,AutoButtonColor=false},f)
+mk("UICorner",{CornerRadius=D(0,8)},mn)
+local cl=mk("TextButton",{BackgroundColor3=rn,BorderSizePixel=0,FontFace=F,TextSize=24,Position=D2(1,-63,0,5),Size=D2(0,55,0,25),Text="×",TextColor3=d,AutoButtonColor=false},f)
+mk("UICorner",{CornerRadius=D(0,8)},cl)
+local of=mk("Frame",{BackgroundColor3=mb,Position=D2(.414,0,.034,0),Size=D2(.162,0,.06,0)},sg)
+mk("UICorner",{CornerRadius=D(0,12)},of)
+mk("UIStroke",{Color=sc,Thickness=1.299},of)
+mk("TextLabel",{BackgroundTransparency=1,FontFace=F,TextSize=24,Size=D2(1,0,1,0),Text="Open",TextColor3=w,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center},of)
+local ob=mk("TextButton",{BackgroundTransparency=1,Text="",Size=D2(1,0,1,0)},of)
+of.Visible=false
+mn.MouseButton1Click:Connect(function()
+local sh=T:Create(fr,TI(.25,ES.Quint,ED.In),{Size=D2(0,SW,0,SH),BackgroundTransparency=1})
+tw(st,.25,ES.Quint,ED.In,{Transparency=1})
+tw(ti,.25,ES.Quint,ED.In,{TextTransparency=1})
+tw(de,.25,ES.Quint,ED.In,{TextTransparency=1})
+sh:Play()sh.Completed:Wait()
+fr.Visible=false of.Visible=true
+fr.Size=D2(0,FW,0,FH)fr.BackgroundTransparency=0 st.Transparency=0 ti.TextTransparency=0 de.TextTransparency=0
+end)
+ob.MouseButton1Click:Connect(function()
+of.Visible=false fr.Visible=true
+fr.Size=D2(0,SW,0,SH)fr.BackgroundTransparency=1 st.Transparency=1 ti.TextTransparency=1 de.TextTransparency=1
+tw(fr,.3,ES.Quint,ED.Out,{Size=D2(0,FW,0,FH),BackgroundTransparency=0})
+tw(st,.3,ES.Quint,ED.Out,{Transparency=0})
+tw(ti,.3,ES.Quint,ED.Out,{TextTransparency=0})
+tw(de,.3,ES.Quint,ED.Out,{TextTransparency=0})
+end)
+local dov=mk("Frame",{Name="DialogOverlay",BackgroundColor3=C3(0,0,0),BackgroundTransparency=1,BorderSizePixel=0,Size=D2(1,0,1,0),Visible=false,ZIndex=50},fr)
+local dlg=mk("Frame",{Name="Dialog",AnchorPoint=V2(.5,.5),BackgroundColor3=mb,BorderSizePixel=0,Position=D2(.5,0,.5,0),Size=D2(0,320,0,165),ZIndex=51},dov)
+mk("UICorner",{CornerRadius=D(0,11)},dlg)
+local ds=mk("UIStroke",{Color=sc,Thickness=1.6},dlg)
+local dt=mk("TextLabel",{BackgroundTransparency=1,FontFace=F,Position=D2(0,18,0,15),Size=D2(1,-36,0,28),Text="Close Window?",TextColor3=w,TextSize=20,TextXAlignment=Enum.TextXAlignment.Left,ZIndex=52},dlg)
+local dd=mk("TextLabel",{BackgroundTransparency=1,FontFace=F,Position=D2(0,18,0,48),Size=D2(1,-36,0,38),Text="This action cannot be undone.",TextColor3=d,TextSize=14,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Left,ZIndex=52},dlg)
+local cn=mk("TextButton",{BackgroundColor3=rn,BorderSizePixel=0,FontFace=F,Position=D2(0,18,1,-50),Size=D2(0,125,0,34),Text="Cancel",TextColor3=w,TextSize=14,AutoButtonColor=false,ZIndex=52},dlg)
+mk("UICorner",{CornerRadius=D(0,8)},cn)
+local cf=mk("TextButton",{BackgroundColor3=rn,BorderSizePixel=0,FontFace=F,AnchorPoint=V2(1,0),Position=D2(1,-18,1,-50),Size=D2(0,125,0,34),Text="Close",TextColor3=w,TextSize=14,AutoButtonColor=false,ZIndex=52},dlg)
+mk("UICorner",{CornerRadius=D(0,8)},cf)
+local dsc=mk("UIScale",{Scale=.85},dlg)
+local function openDlg()
+dov.Visible=true dsc.Scale=.85 dlg.BackgroundTransparency=1 ds.Transparency=1 dt.TextTransparency=1 dd.TextTransparency=1 cn.BackgroundTransparency=1 cn.TextTransparency=1 cf.BackgroundTransparency=1 cf.TextTransparency=1
+tw(dsc,.22,ES.Back,ED.Out,{Scale=1})
+tw(dlg,.18,ES.Quad,ED.Out,{BackgroundTransparency=0})
+tw(ds,.18,ES.Quad,ED.Out,{Transparency=0})
+tw(dt,.2,ES.Quad,ED.Out,{TextTransparency=0})
+tw(dd,.2,ES.Quad,ED.Out,{TextTransparency=0})
+tw(cn,.2,ES.Quad,ED.Out,{BackgroundTransparency=0,TextTransparency=0})
+tw(cf,.2,ES.Quad,ED.Out,{BackgroundTransparency=0,TextTransparency=0})
+end
+local function closeDlg()
+tw(dsc,.16,ES.Quint,ED.In,{Scale=.85})
+tw(dlg,.16,ES.Quint,ED.In,{BackgroundTransparency=1})
+tw(ds,.16,ES.Quint,ED.In,{Transparency=1})
+tw(dt,.16,ES.Quint,ED.In,{TextTransparency=1})
+tw(dd,.16,ES.Quint,ED.In,{TextTransparency=1})
+tw(cn,.16,ES.Quint,ED.In,{BackgroundTransparency=1,TextTransparency=1})
+tw(cf,.16,ES.Quint,ED.In,{BackgroundTransparency=1,TextTransparency=1})
+task.wait(.17)dov.Visible=false
+end
+cl.MouseButton1Click:Connect(openDlg)
+cn.MouseButton1Click:Connect(closeDlg)
+cf.MouseButton1Click:Connect(function()
+closeDlg()
+local sh=T:Create(fr,TI(.25,ES.Quint,ED.In),{Size=D2(0,SW,0,SH),BackgroundTransparency=1})
+tw(st,.25,ES.Quint,ED.In,{TextTransparency=1})
+tw(ti,.25,ES.Quint,ED.In,{TextTransparency=1})
+tw(de,.25,ES.Quint,ED.In,{TextTransparency=1})
+sh:Play()sh.Completed:Wait()
+fr.Visible=false
+end)
+local tf=mk("ScrollingFrame",{Name="Tabs",BackgroundTransparency=1,BorderSizePixel=0,Position=D2(0,12,0,56),Size=D2(0,155,1,-68),CanvasSize=D2(0,0,0,0),AutomaticCanvasSize=Enum.AutomaticSize.Y,ScrollBarThickness=3,ScrollBarImageTransparency=.4,ScrollingDirection=Enum.ScrollingDirection.Y},fr)
+mk("UICorner",{CornerRadius=D(0,9)},tf)
+mk("UIStroke",{Color=sc,Thickness=1.4},tf)
+mk("UIPadding",{PaddingTop=D(0,8),PaddingBottom=D(0,8),PaddingLeft=D(0,8),PaddingRight=D(0,8)},tf)
+mk("UIListLayout",{Padding=D(0,7),HorizontalAlignment=Enum.HorizontalAlignment.Center,SortOrder=Enum.SortOrder.LayoutOrder},tf)
+local tabs={}local tc=0
+function W:CreateTab(nm)
+local Tab={}
+tc+=1
+local tb=mk("TextButton",{Name=nm.."Tab",BackgroundColor3=stc,BackgroundTransparency=1,BorderSizePixel=0,Size=D2(1,-16,0,40),LayoutOrder=tc,FontFace=F,Text=nm,TextColor3=d,TextSize=15.5,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,AutoButtonColor=false},tf)
+mk("UICorner",{CornerRadius=D(0,10)},tb)
+local ct=mk("ScrollingFrame",{Name=nm.."Content",BackgroundTransparency=1,BorderSizePixel=0,Position=D2(0,179,0,56),Size=D2(1,-191,1,-68),CanvasSize=D2(0,0,0,0),AutomaticCanvasSize=Enum.AutomaticSize.Y,ScrollBarThickness=3,ScrollBarImageTransparency=.4,ScrollingDirection=Enum.ScrollingDirection.Y,Visible=false},fr)
+mk("UIPadding",{PaddingLeft=D(0,3),PaddingRight=D(0,5),PaddingTop=D(0,3),PaddingBottom=D(0,10)},ct)
+mk("UIListLayout",{Padding=D(0,8),SortOrder=Enum.SortOrder.LayoutOrder},ct)
+tabs[nm]={Button=tb,Content=ct}
+local function selectTab()
+for _,t in pairs(tabs)do
+t.Content.Visible=false
+tw(t.Button,.15,ES.Quad,ED.Out,{BackgroundTransparency=1,TextColor3=d})
+end
+ct.Visible=true
+tw(tb,.15,ES.Quad,ED.Out,{BackgroundTransparency=.6,TextColor3=w})
+end
+tb.MouseButton1Click:Connect(selectTab)
+function Tab:Select()selectTab()end
+function Tab:Button(o)
+o=o or{}
+local bo={}
+local card=mk("Frame",{Name="ButtonCard",BackgroundColor3=cb,BorderSizePixel=0,Size=D2(1,0,0,58),LayoutOrder=o.LayoutOrder or 1},ct)
+mk("UICorner",{CornerRadius=D(0,9)},card)
+mk("UIStroke",{Color=sc,Thickness=1.4},card)
+mk("TextLabel",{BackgroundTransparency=1,Position=D2(0,14,0,4),Size=D2(1,-105,0,25),FontFace=F,Text=o.Name or"Button",TextColor3=w,TextSize=18,TextXAlignment=Enum.TextXAlignment.Left},card)
+mk("TextLabel",{BackgroundTransparency=1,Position=D2(0,14,0,32),Size=D2(1,-105,0,18),FontFace=F,Text=o.Description or"",TextColor3=d,TextSize=14,TextXAlignment=Enum.TextXAlignment.Left},card)
+local btn=mk("TextButton",{Name="Run",BackgroundColor3=rn,BorderSizePixel=0,FontFace=F,AnchorPoint=V2(1,.5),Position=D2(1,-10,.5,0),Size=D2(0,60,0,30),Text="Run",TextColor3=w,TextSize=14,AutoButtonColor=true},card)
+mk("UICorner",{CornerRadius=D(0,8)},btn)
+bo.State=o.State or false bo.Value=bo.State
+function bo:GetValue()return bo.Value end
+function bo:SetValue(v)bo.State=v bo.Value=v end
+btn.MouseButton1Click:Connect(function()
+bo.State=true bo.Value=true
+if o.Callback then o.Callback(bo.Value)end
+end)
+return bo
+end
+function Tab:Toggle(o)
+o=o or{}
+local tobj={}
+local card=mk("Frame",{Name="ToggleCard",BackgroundColor3=cb,BorderSizePixel=0,Size=D2(1,0,0,58),LayoutOrder=o.LayoutOrder or 1},ct)
+mk("UICorner",{CornerRadius=D(0,9)},card)
+mk("UIStroke",{Color=sc,Thickness=1.4},card)
+mk("TextLabel",{BackgroundTransparency=1,Position=D2(0,14,0,4),Size=D2(1,-90,0,25),FontFace=F,Text=o.Name or"Toggle",TextColor3=w,TextSize=18,TextXAlignment=Enum.TextXAlignment.Left},card)
+mk("TextLabel",{BackgroundTransparency=1,Position=D2(0,14,0,32),Size=D2(1,-90,0,18),FontFace=F,Text=o.Description or"",TextColor3=d,TextSize=14,TextXAlignment=Enum.TextXAlignment.Left},card)
+local tb2=mk("TextButton",{Name="Toggle",BackgroundColor3=rn,BorderSizePixel=0,AnchorPoint=V2(1,.5),Position=D2(1,-10,.5,0),Size=D2(0,48,0,26),Text="",AutoButtonColor=false},card)
+mk("UICorner",{CornerRadius=D(1,0)},tb2)
+local knob=mk("Frame",{Name="Knob",BackgroundColor3=kOff,BorderSizePixel=0,AnchorPoint=V2(0,.5),Position=D2(0,4,.5,0),Size=D2(0,18,0,18)},tb2)
+mk("UICorner",{CornerRadius=D(1,0)},knob)
+tobj.Value=o.Default or false tobj.State=tobj.Value
+local function upd()
+local bg=tobj.Value and tOn or rn
+local kc=tobj.Value and kOn or kOff
+local pos=tobj.Value and D2(1,-22,.5,0)or D2(0,4,.5,0)
+tw(tb2,.2,ES.Quad,ED.Out,{BackgroundColor3=bg})
+tw(knob,.2,ES.Quad,ED.Out,{Position=pos,BackgroundColor3=kc})
+end
+function tobj:GetValue()return tobj.Value end
+function tobj:SetValue(v)tobj.Value=v tobj.State=v upd()if o.Callback then o.Callback(v)end end
+tb2.MouseButton1Click:Connect(function()
+tobj.Value=not tobj.Value tobj.State=tobj.Value upd()
+if o.Callback then o.Callback(tobj.Value)end
+end)
+upd()
+return tobj
+end
+if tc==1 then selectTab()end
+return Tab
+end
+function W:Destroy()sg:Destroy()end
+function W:Minimize()if fr.Visible then mn:Activate()end end
+function W:Open()if not fr.Visible then ob:Activate()end end
+task.defer(function()
+fr.Size=D2(0,SW,0,SH)fr.BackgroundTransparency=1 st.Transparency=1 ti.TextTransparency=1 de.TextTransparency=1
+tw(fr,.3,ES.Quint,ED.Out,{Size=D2(0,FW,0,FH),BackgroundTransparency=0})
+tw(st,.3,ES.Quint,ED.Out,{Transparency=0})
+tw(ti,.3,ES.Quint,ED.Out,{TextTransparency=0})
+tw(de,.3,ES.Quint,ED.Out,{TextTransparency=0})
+end)
+return W
+end
+return B
