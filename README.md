@@ -28,7 +28,7 @@ Elements:
 Button:
 
 ```lua
-MainTab:Button({
+local Buttob = MainTab:Button({
     Name = "Test Button",
     Description = "Click me",
     Callback = function()
@@ -40,7 +40,7 @@ MainTab:Button({
 Toggle:
 
 ```lua
-MainTab:Toggle({
+local Toggle = MainTab:Toggle({
     Name = "Test Toggle",
     Description = "Enable something",
     Callback = function(Value)
@@ -61,7 +61,7 @@ local Window = BreezeUI:CreateWindow({
 
 local MainTab = Window:CreateTab("Main")
 
-MainTab:Button({
+local Button =MainTab:Button({
     Name = "Test Button",
     Description = "Click me",
     Callback = function()
@@ -69,7 +69,7 @@ MainTab:Button({
     end
 })
 
-MainTab:Toggle({
+local Toggle =MainTab:Toggle({
     Name = "Test Toggle",
     Description = "Enable something",
     Callback = function(Value)
