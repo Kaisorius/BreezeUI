@@ -2,7 +2,6 @@
 BreezeUI is a lightweight Roblox Luau UI library built with its own uniqueness and love.
 
 ## Installation
-Copy the line below into your executor's script input (GitHub shows a copy button on code blocks):
 
 ```lua
 local BreezeUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kaisorius/BreezeUI/refs/heads/main/BreezeUI.lua"))()
