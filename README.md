@@ -20,7 +20,7 @@ local Window = BreezeUI:CreateWindow({
 Window Tab:
 
 ```lua
-local MainTab = Window:CreateTab("Main")
+local Tab = Window:CreateTab("Main")
 ```
 
 Elements:
@@ -28,7 +28,7 @@ Elements:
 Button:
 
 ```lua
-local Button = MainTab:Button({
+local Button = Tab:Button({
     Name = "Test Button",
     Description = "Click me",
     Callback = function()
@@ -40,7 +40,7 @@ local Button = MainTab:Button({
 Toggle:
 
 ```lua
-local Toggle = MainTab:Toggle({
+local Toggle = Tab:Toggle({
     Name = "Test Toggle",
     Description = "Enable something",
     Callback = function(Value)
@@ -59,9 +59,9 @@ local Window = BreezeUI:CreateWindow({
     Description = "My Hub"
 })
 
-local MainTab = Window:CreateTab("Main")
+local Tab = Window:CreateTab("Main")
 
-local Button =MainTab:Button({
+local Button = Tab:Button({
     Name = "Test Button",
     Description = "Click me",
     Callback = function()
@@ -69,7 +69,7 @@ local Button =MainTab:Button({
     end
 })
 
-local Toggle =MainTab:Toggle({
+local Toggle = Tab:Toggle({
     Name = "Test Toggle",
     Description = "Enable something",
     Callback = function(Value)
