@@ -2,6 +2,14 @@
 -- Offcial Code 
 -- https://github.com/Kaisorius/BreezeUI
 -- Kaiser / Kaisorius
+--[[
+ ____  ____  _____  _____  _____  _____  _   _ ___
+| __ )|  _ \| ____|| ____||__  / | ____|| | | |_ _|
+|  _ \| |_) |  _|  |  _|    / /  |  _|  | | | || |
+| |_) |  _ <| |___ | |___  / /_  | |___ | |_| || |
+|____/|_| \_\_____||_____|/____| |_____|\___/|___|
+]]
+
 local P=game:GetService("Players")local T=game:GetService("TweenService")local L=P.LocalPlayer local I=Instance.new local UD=UDim2.new local U=UDim.new local V=Vector2.new local C=Color3.fromRGB local TI=TweenInfo.new local ES=Enum.EasingStyle local ED=Enum.EasingDirection local B=BreezeUI or{}local G=L:WaitForChild("PlayerGui")local F=Font.fromName("Montserrat",Enum.FontWeight.Bold,Enum.FontStyle.Italic)local a=C(162,162,162)local b=C(84,84,86)local c=C(12,12,14)local d=C(18,17,22)local e=C(33,32,38)local f=C(35,34,40)local g=C(25,24,30)local h=C(55,54,61)local i=C(190,190,195)local j=C(125,125,130)local W,H,S=560,440,.85 local w,z=W*S,H*S
 local function N(t,p,r)local o=I(t)for k,v in pairs(p)do o[k]=v end if r then o.Parent=r end return o end
 local function Q(o,t,s,d,p)local x=T:Create(o,TI(t,s,d),p)x:Play()return x end
