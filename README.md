@@ -83,14 +83,10 @@ BreezeUI is a beta UI library created by Kaiser / Kaisorius.
 Bugs may occur. Stay updated for future improvements.
 
 ## License
-BreezeUI is source-available software licensed under the Attribution Assurance License (AAL).
+BreezeUI is an Attribution-Required Free Model (ArFM) protected by the MIT License.
 
-Copyright © 2026 Kaisorius.
+Copyright © 2026 Kaiser.
 
-You may use, reverse, modify, and redistribute BreezeUI under the terms of the AAL.
-When redistributing BreezeUI or any modified version, the original author attribution must be preserved.
-You may not present the original BreezeUI project or its code as your own work, or remove the required attribution.
-For the full license terms, see the LICENSE file in this repository or the official page:
-https://opensource.org/license/aal
+You are free to use, modify, and run this minified UI library in your scripts. However, you must keep the original copyright credits intact. Claiming ownership or re-uploading BreezeUI as your own creation is strictly prohibited.
 
-For the complete license terms, see the "LICENSE" file in this repository or the official license link: https://opensource.org/license/aal
+For the full legal terms, see the LICENSE file in this repository.
