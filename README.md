@@ -1,5 +1,5 @@
 # BreezeUI
-BreezeUI is a lightweight Roblox Luau UI library built with its own uniqueness.
+BreezeUI is a lightweight Roblox Luau UI library with its own unique design.
 
 ## Loadstring
 
@@ -79,13 +79,18 @@ local Toggle =MainTab:Toggle({
 ```
 
 ## Attribution
-This is beta ui library made by Kaiser / Kaisorious. You may occure bug in the future. stay updated for more updates
+BreezeUI is a beta UI library created by Kaiser / Kaisorius.
+Bugs may occur. Stay updated for future improvements.
 
 ## License
-BreezeUI is licensed under the Attribution Assurance License (AAL).
+BreezeUI is source-available software licensed under the Attribution Assurance License (AAL).
 
 Copyright © 2026 Kaisorius.
 
-You are permitted to use, modify, and redistribute BreezeUI according to the terms of the AAL license. When redistributing BreezeUI or modified versions of it, the original author attribution must be preserved as required by the license. You may not present the original BreezeUI project or its source code as your own work or remove required attribution.
+You may use, reverse, modify, and redistribute BreezeUI under the terms of the AAL.
+When redistributing BreezeUI or any modified version, the original author attribution must be preserved.
+You may not present the original BreezeUI project or its code as your own work, or remove the required attribution.
+For the full license terms, see the LICENSE file in this repository or the official page:
+https://opensource.org/license/aal
 
 For the complete license terms, see the "LICENSE" file in this repository or the official license link: https://opensource.org/license/aal
