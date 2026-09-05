@@ -1,7 +1,6 @@
 -- Breeze UI Library
 -- Official Code 
 -- https://github.com/Kaisorius/BreezeUI
--- Kaiser / Kaisorius
 -- Copyright © 2026 Kaiser
 -- Open Source
 -- Inspired by a roblox ui exploit
