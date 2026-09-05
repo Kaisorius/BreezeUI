@@ -87,6 +87,6 @@ BreezeUI is an Open Source UI Library protected by the MIT License.
 
 Copyright © 2026 Kaiser.
 
-You are free to use, modify, and run this UI library in your scripts. However, you must keep the original copyright and license notices intact when redistributing it. You may not present the original BreezeUI library as your own creation.
+You are free to use, modify, and run this UI library in your scripts. However, you must keep the original copyright and license notices intact when redistributing it.
 
 For the full legal terms, see the LICENSE file in this repository.
