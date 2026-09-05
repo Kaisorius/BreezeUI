@@ -1,30 +1,987 @@
 -- Breeze UI Library
--- Offcial Code 
+-- Official Code 
 -- https://github.com/Kaisorius/BreezeUI
 -- Kaiser / Kaisorius
+-- Open Source
+-- Inspired by a roblox ui exploit
+-- Most of codes is made with ai
+-- the design, button, tab, overall ui concept are by me
 --[[
- ____  ____  _____  _____  _____  _____  _   _ ___
+____  ____  _____  _____  _____  _____  _   _ ___
 | __ )|  _ \| ____|| ____||__  / | ____|| | | |_ _|
 |  _ \| |_) |  _|  |  _|    / /  |  _|  | | | || |
 | |_) |  _ <| |___ | |___  / /_  | |___ | |_| || |
 |____/|_| \_\_____||_____|/____| |_____|\___/|___|
 ]]
 
-local P=game:GetService("Players")local T=game:GetService("TweenService")local L=P.LocalPlayer local I=Instance.new local UD=UDim2.new local U=UDim.new local V=Vector2.new local C=Color3.fromRGB local TI=TweenInfo.new local ES=Enum.EasingStyle local ED=Enum.EasingDirection local B=BreezeUI or{}local G=L:WaitForChild("PlayerGui")local F=Font.fromName("Montserrat",Enum.FontWeight.Bold,Enum.FontStyle.Italic)local a=C(162,162,162)local b=C(84,84,86)local c=C(12,12,14)local d=C(18,17,22)local e=C(33,32,38)local f=C(35,34,40)local g=C(25,24,30)local h=C(55,54,61)local i=C(190,190,195)local j=C(125,125,130)local W,H,S=560,440,.85 local w,z=W*S,H*S
-local function N(t,p,r)local o=I(t)for k,v in pairs(p)do o[k]=v end if r then o.Parent=r end return o end
-local function Q(o,t,s,d,p)local x=T:Create(o,TI(t,s,d),p)x:Play()return x end
-function B:CreateWindow(o)o=o or{}local R={}local SG=N("ScreenGui",{Name="BreezeUI",ResetOnSpawn=false,ZIndexBehavior=Enum.ZIndexBehavior.Sibling},G)local M=N("Frame",{Name="Main",AnchorPoint=V(.5,.5),BackgroundColor3=c,BorderSizePixel=0,Position=UD(.5,0,.5,0),Size=UD(0,W,0,H)},SG)N("UISizeConstraint",{MinSize=V(400,340),MaxSize=V(650,520)},M)N("UIAspectRatioConstraint",{AspectRatio=W/H},M)N("UICorner",{CornerRadius=U(0,11)},M)local MS=N("UIStroke",{Color=e,Thickness=1.5},M)local TT=N("TextLabel",{BackgroundTransparency=1,FontFace=F,Position=UD(.034,0,.019,0),Size=UD(.528,0,.054,0),Text=o.Name or o.Title or"BreezeUI",TextColor3=a,TextSize=24,TextTruncate=Enum.TextTruncate.AtEnd,TextXAlignment=Enum.TextXAlignment.Left,TextYAlignment=Enum.TextYAlignment.Top},M)local DD=N("TextLabel",{BackgroundTransparency=1,FontFace=F,Position=UD(.037,0,.079,0),Size=UD(.528,0,.054,0),Text=o.Description or"Simple UI Library",TextColor3=b,TextSize=16,TextTruncate=Enum.TextTruncate.AtEnd,TextXAlignment=Enum.TextXAlignment.Left,TextYAlignment=Enum.TextYAlignment.Top},M)local CT=N("Frame",{BackgroundTransparency=1,Position=UD(1,-145,0,8),Size=UD(0,135,0,35)},M)N("UIAspectRatioConstraint",{AspectRatio=135/35},CT)N("UIStroke",{Color=e,Thickness=1.6},CT)N("UICorner",{CornerRadius=U(0,12)},CT)local MN=N("TextButton",{BackgroundColor3=g,BorderSizePixel=0,FontFace=F,TextSize=24,Position=UD(0,8,0,5),Size=UD(0,55,0,25),Text="-",TextColor3=b,AutoButtonColor=false},CT)N("UICorner",{CornerRadius=U(0,8)},MN)local CL=N("TextButton",{BackgroundColor3=g,BorderSizePixel=0,FontFace=F,TextSize=24,Position=UD(1,-63,0,5),Size=UD(0,55,0,25),Text="×",TextColor3=b,AutoButtonColor=false},CT)N("UICorner",{CornerRadius=U(0,8)},CL)local OF=N("Frame",{BackgroundColor3=c,Position=UD(.414,0,.034,0),Size=UD(.162,0,.06,0),Visible=false},SG)N("UICorner",{CornerRadius=U(0,12)},OF)N("UIStroke",{Color=e,Thickness=1.299},OF)N("TextLabel",{BackgroundTransparency=1,FontFace=F,TextSize=24,Size=UD(1,0,1,0),Text="Open",TextColor3=a,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center},OF)local OB=N("TextButton",{BackgroundTransparency=1,Text="",Size=UD(1,0,1,0)},OF)local OV=N("Frame",{Name="DialogOverlay",BackgroundColor3=C(0,0,0),BackgroundTransparency=1,BorderSizePixel=0,Size=UD(1,0,1,0),Visible=false,ZIndex=50},M)local DG=N("Frame",{Name="Dialog",AnchorPoint=V(.5,.5),BackgroundColor3=c,BorderSizePixel=0,Position=UD(.5,0,.5,0),Size=UD(0,320,0,165),ZIndex=51},OV)N("UICorner",{CornerRadius=U(0,11)},DG)local DS=N("UIStroke",{Color=e,Thickness=1.6},DG)local DT=N("TextLabel",{BackgroundTransparency=1,FontFace=F,Position=UD(0,18,0,15),Size=UD(1,-36,0,28),Text="Close Window?",TextColor3=a,TextSize=20,TextXAlignment=Enum.TextXAlignment.Left,ZIndex=52},DG)local DX=N("TextLabel",{BackgroundTransparency=1,FontFace=F,Position=UD(0,18,0,48),Size=UD(1,-36,0,38),Text="This action cannot be undone.",TextColor3=b,TextSize=14,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Left,ZIndex=52},DG)local CN=N("TextButton",{BackgroundColor3=g,BorderSizePixel=0,FontFace=F,Position=UD(0,18,1,-50),Size=UD(0,125,0,34),Text="Cancel",TextColor3=a,TextSize=14,AutoButtonColor=false,ZIndex=52},DG)N("UICorner",{CornerRadius=U(0,8)},CN)local CF=N("TextButton",{BackgroundColor3=g,BorderSizePixel=0,FontFace=F,AnchorPoint=V(1,0),Position=UD(1,-18,1,-50),Size=UD(0,125,0,34),Text="Close",TextColor3=a,TextSize=14,AutoButtonColor=false,ZIndex=52},DG)N("UICorner",{CornerRadius=U(0,8)},CF)local DSZ=N("UIScale",{Scale=.85},DG)local function OD()OV.Visible=true DSZ.Scale=.85 DG.BackgroundTransparency=1 DS.Transparency=1 DT.TextTransparency=1 DX.TextTransparency=1 CN.BackgroundTransparency=1 CN.TextTransparency=1 CF.BackgroundTransparency=1 CF.TextTransparency=1 Q(DSZ,.22,ES.Back,ED.Out,{Scale=1})Q(DG,.18,ES.Quad,ED.Out,{BackgroundTransparency=0})Q(DS,.18,ES.Quad,ED.Out,{Transparency=0})Q(DT,.2,ES.Quad,ED.Out,{TextTransparency=0})Q(DX,.2,ES.Quad,ED.Out,{TextTransparency=0})Q(CN,.2,ES.Quad,ED.Out,{BackgroundTransparency=0,TextTransparency=0})Q(CF,.2,ES.Quad,ED.Out,{BackgroundTransparency=0,TextTransparency=0})end
-local function CD()Q(DSZ,.16,ES.Quint,ED.In,{Scale=.85})Q(DG,.16,ES.Quint,ED.In,{BackgroundTransparency=1})Q(DS,.16,ES.Quint,ED.In,{Transparency=1})Q(DT,.16,ES.Quint,ED.In,{TextTransparency=1})Q(DX,.16,ES.Quint,ED.In,{TextTransparency=1})Q(CN,.16,ES.Quint,ED.In,{BackgroundTransparency=1,TextTransparency=1})Q(CF,.16,ES.Quint,ED.In,{BackgroundTransparency=1,TextTransparency=1})task.wait(.17)OV.Visible=false end
-MN.MouseButton1Click:Connect(function()local x=T:Create(M,TI(.25,ES.Quint,ED.In),{Size=UD(0,w,0,z),BackgroundTransparency=1})Q(MS,.25,ES.Quint,ED.In,{Transparency=1})Q(TT,.25,ES.Quint,ED.In,{TextTransparency=1})Q(DD,.25,ES.Quint,ED.In,{TextTransparency=1})x:Play()x.Completed:Wait()M.Visible=false OF.Visible=true M.Size=UD(0,W,0,H)M.BackgroundTransparency=0 MS.Transparency=0 TT.TextTransparency=0 DD.TextTransparency=0 end)
-OB.MouseButton1Click:Connect(function()OF.Visible=false M.Visible=true M.Size=UD(0,w,0,z)M.BackgroundTransparency=1 MS.Transparency=1 TT.TextTransparency=1 DD.TextTransparency=1 Q(M,.3,ES.Quint,ED.Out,{Size=UD(0,W,0,H),BackgroundTransparency=0})Q(MS,.3,ES.Quint,ED.Out,{Transparency=0})Q(TT,.3,ES.Quint,ED.Out,{TextTransparency=0})Q(DD,.3,ES.Quint,ED.Out,{TextTransparency=0})end)
-CL.MouseButton1Click:Connect(OD)CN.MouseButton1Click:Connect(CD)CF.MouseButton1Click:Connect(function()CD()local x=T:Create(M,TI(.25,ES.Quint,ED.In),{Size=UD(0,w,0,z),BackgroundTransparency=1})Q(MS,.25,ES.Quint,ED.In,{Transparency=1})Q(TT,.25,ES.Quint,ED.In,{TextTransparency=1})Q(DD,.25,ES.Quint,ED.In,{TextTransparency=1})x:Play()x.Completed:Wait()M.Visible=false end)
-local TB=N("ScrollingFrame",{Name="Tabs",BackgroundTransparency=1,BorderSizePixel=0,Position=UD(0,12,0,56),Size=UD(0,155,1,-68),CanvasSize=UD(0,0,0,0),AutomaticCanvasSize=Enum.AutomaticSize.Y,ScrollBarThickness=3,ScrollBarImageTransparency=.4,ScrollingDirection=Enum.ScrollingDirection.Y},M)N("UICorner",{CornerRadius=U(0,9)},TB)N("UIStroke",{Color=e,Thickness=1.4},TB)N("UIPadding",{PaddingTop=U(0,8),PaddingBottom=U(0,8),PaddingLeft=U(0,8),PaddingRight=U(0,8)},TB)N("UIListLayout",{Padding=U(0,7),HorizontalAlignment=Enum.HorizontalAlignment.Center,SortOrder=Enum.SortOrder.LayoutOrder},TB)local Tabs={}local Count=0
-function R:CreateTab(Name)local Tab={}Count+=1 local Button=N("TextButton",{Name=Name.."Tab",BackgroundColor3=f,BackgroundTransparency=1,BorderSizePixel=0,Size=UD(1,-16,0,40),LayoutOrder=Count,FontFace=F,Text=Name,TextColor3=b,TextSize=15.5,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,AutoButtonColor=false},TB)N("UICorner",{CornerRadius=U(0,10)},Button)local Content=N("ScrollingFrame",{Name=Name.."Content",BackgroundTransparency=1,BorderSizePixel=0,Position=UD(0,179,0,56),Size=UD(1,-191,1,-68),CanvasSize=UD(0,0,0,0),AutomaticCanvasSize=Enum.AutomaticSize.Y,ScrollBarThickness=3,ScrollBarImageTransparency=.4,ScrollingDirection=Enum.ScrollingDirection.Y,Visible=false},M)N("UIPadding",{PaddingLeft=U(0,3),PaddingRight=U(0,5),PaddingTop=U(0,3),PaddingBottom=U(0,10)},Content)N("UIListLayout",{Padding=U(0,8),SortOrder=Enum.SortOrder.LayoutOrder},Content)Tabs[Name]={Button=Button,Content=Content}local function Select()for _,v in pairs(Tabs)do v.Content.Visible=false Q(v.Button,.15,ES.Quad,ED.Out,{BackgroundTransparency=1,TextColor3=b})end Content.Visible=true Q(Button,.15,ES.Quad,ED.Out,{BackgroundTransparency=.6,TextColor3=a})end Button.MouseButton1Click:Connect(Select)function Tab:Select()Select()end
-function Tab:Button(o)o=o or{}local Rtn={}local Card=N("Frame",{Name="ButtonCard",BackgroundColor3=d,BorderSizePixel=0,Size=UD(1,0,0,58),LayoutOrder=o.LayoutOrder or 1},Content)N("UICorner",{CornerRadius=U(0,9)},Card)N("UIStroke",{Color=e,Thickness=1.4},Card)N("TextLabel",{BackgroundTransparency=1,Position=UD(0,14,0,4),Size=UD(1,-105,0,25),FontFace=F,Text=o.Name or"Button",TextColor3=a,TextSize=18,TextXAlignment=Enum.TextXAlignment.Left},Card)N("TextLabel",{BackgroundTransparency=1,Position=UD(0,14,0,32),Size=UD(1,-105,0,18),FontFace=F,Text=o.Description or"",TextColor3=b,TextSize=14,TextXAlignment=Enum.TextXAlignment.Left},Card)local Run=N("TextButton",{Name="Run",BackgroundColor3=g,BorderSizePixel=0,FontFace=F,AnchorPoint=V(1,.5),Position=UD(1,-10,.5,0),Size=UD(0,60,0,30),Text="Run",TextColor3=a,TextSize=14,AutoButtonColor=true},Card)N("UICorner",{CornerRadius=U(0,8)},Run)Rtn.State=o.State or false Rtn.Value=Rtn.State function Rtn:GetValue()return Rtn.Value end function Rtn:SetValue(v)Rtn.State=v Rtn.Value=v if o.Callback then o.Callback(v)end end Run.MouseButton1Click:Connect(function()Rtn.State=true Rtn.Value=true if o.Callback then o.Callback(Rtn.Value)end end)return Rtn end
-function Tab:Toggle(o)o=o or{}local Rtn={}local Card=N("Frame",{Name="ToggleCard",BackgroundColor3=d,BorderSizePixel=0,Size=UD(1,0,0,58),LayoutOrder=o.LayoutOrder or 1},Content)N("UICorner",{CornerRadius=U(0,9)},Card)N("UIStroke",{Color=e,Thickness=1.4},Card)N("TextLabel",{BackgroundTransparency=1,Position=UD(0,14,0,4),Size=UD(1,-90,0,25),FontFace=F,Text=o.Name or"Toggle",TextColor3=a,TextSize=18,TextXAlignment=Enum.TextXAlignment.Left},Card)N("TextLabel",{BackgroundTransparency=1,Position=UD(0,14,0,32),Size=UD(1,-90,0,18),FontFace=F,Text=o.Description or"",TextColor3=b,TextSize=14,TextXAlignment=Enum.TextXAlignment.Left},Card)local Toggle=N("TextButton",{Name="Toggle",BackgroundColor3=g,BorderSizePixel=0,AnchorPoint=V(1,.5),Position=UD(1,-10,.5,0),Size=UD(0,48,0,26),Text="",AutoButtonColor=false},Card)N("UICorner",{CornerRadius=U(1,0)},Toggle)local Knob=N("Frame",{Name="Knob",BackgroundColor3=j,BorderSizePixel=0,AnchorPoint=V(0,.5),Position=UD(0,4,.5,0),Size=UD(0,18,0,18)},Toggle)N("UICorner",{CornerRadius=U(1,0)},Knob)Rtn.Value=o.Default or false Rtn.State=Rtn.Value local function Update()local bg=Rtn.Value and h or g local kc=Rtn.Value and i or j local pos=Rtn.Value and UD(1,-22,.5,0)or UD(0,4,.5,0)Q(Toggle,.2,ES.Quad,ED.Out,{BackgroundColor3=bg})Q(Knob,.2,ES.Quad,ED.Out,{Position=pos,BackgroundColor3=kc})end function Rtn:GetValue()return Rtn.Value end function Rtn:SetValue(v)Rtn.Value=v Rtn.State=v Update()if o.Callback then o.Callback(v)end end Toggle.MouseButton1Click:Connect(function()Rtn.Value=not Rtn.Value Rtn.State=Rtn.Value Update()if o.Callback then o.Callback(Rtn.Value)end end)Update()return Rtn end
-if Count==1 then Select()end return Tab end
-function R:Destroy()SG:Destroy()end
-function R:Minimize()if M.Visible then MN:Activate()end end
-function R:Open()if not M.Visible then OB:Activate()end end
-task.defer(function()M.Size=UD(0,w,0,z)M.BackgroundTransparency=1 MS.Transparency=1 TT.TextTransparency=1 DD.TextTransparency=1 Q(M,.3,ES.Quint,ED.Out,{Size=UD(0,W,0,H),BackgroundTransparency=0})Q(MS,.3,ES.Quint,ED.Out,{Transparency=0})Q(TT,.3,ES.Quint,ED.Out,{TextTransparency=0})Q(DD,.3,ES.Quint,ED.Out,{TextTransparency=0})end)return R end
-return B
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local player = Players.LocalPlayer
+
+local BreezeUI = {}
+
+local Default = Font.fromName(
+    "Montserrat",
+    Enum.FontWeight.Bold,
+    Enum.FontStyle.Italic
+)
+
+local PlayerGui = player:WaitForChild("PlayerGui")
+
+local w = Color3.fromRGB(162, 162, 162)
+local d = Color3.fromRGB(84, 84, 86)
+local run = Color3.fromRGB(25, 24, 30)
+local knobcolor = Color3.fromRGB(190, 190, 195)
+
+local fullWidth = 560
+local fullHeight = 440
+local smallScale = 0.85
+
+local smallWidth = fullWidth * smallScale
+local smallHeight = fullHeight * smallScale
+
+function BreezeUI:CreateWindow(options)
+    options = options or {}
+
+    local Window = {}
+
+    local screengui = Instance.new("ScreenGui")
+    screengui.Name = "BreezeUI"
+    screengui.ResetOnSpawn = false
+    screengui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    screengui.Parent = PlayerGui
+
+    local frame = Instance.new("Frame")
+    frame.Name = "Main"
+    frame.AnchorPoint = Vector2.new(0.5, 0.5)
+    frame.BackgroundColor3 = Color3.fromRGB(12, 12, 14)
+    frame.BorderSizePixel = 0
+    frame.Position = UDim2.fromScale(0.5, 0.5)
+    frame.Size = UDim2.new(0, 560, 0, 440)
+    frame.Parent = screengui
+
+    local sizeConstraint = Instance.new("UISizeConstraint")
+    sizeConstraint.MinSize = Vector2.new(400, 340)
+    sizeConstraint.MaxSize = Vector2.new(650, 520)
+    sizeConstraint.Parent = frame
+
+    local aspect = Instance.new("UIAspectRatioConstraint")
+    aspect.AspectRatio = 560 / 440
+    aspect.Parent = frame
+
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 11)
+    corner.Parent = frame
+
+    local stroke = Instance.new("UIStroke")
+    stroke.Color = Color3.fromRGB(33, 32, 38)
+    stroke.Thickness = 1.5
+    stroke.Parent = frame
+
+    local title = Instance.new("TextLabel")
+    title.BackgroundTransparency = 1
+    title.FontFace = Default
+    title.Position = UDim2.new(0.034, 0, 0.019, 0)
+    title.Size = UDim2.new(0.528, 0, 0.054, 0)
+    title.Text = options.Name or options.Title or "BreezeUI"
+    title.TextColor3 = w
+    title.TextSize = 24
+    title.TextTruncate = Enum.TextTruncate.AtEnd
+    title.TextXAlignment = Enum.TextXAlignment.Left
+    title.TextYAlignment = Enum.TextYAlignment.Top
+    title.Parent = frame
+
+    local desc = Instance.new("TextLabel")
+    desc.BackgroundTransparency = 1
+    desc.FontFace = Default
+    desc.Position = UDim2.new(0.037, 0, 0.079, 0)
+    desc.Size = UDim2.new(0.528, 0, 0.054, 0)
+    desc.Text = options.Description or "Simple UI Library"
+    desc.TextColor3 = d
+    desc.TextSize = 16
+    desc.TextTruncate = Enum.TextTruncate.AtEnd
+    desc.TextXAlignment = Enum.TextXAlignment.Left
+    desc.TextYAlignment = Enum.TextYAlignment.Top
+    desc.Parent = frame
+
+    local f = Instance.new("Frame")
+    f.BackgroundTransparency = 1
+    f.Position = UDim2.new(1, -145, 0, 8)
+    f.Size = UDim2.new(0, 135, 0, 35)
+    f.Parent = frame
+
+    local fa = Instance.new("UIAspectRatioConstraint")
+    fa.AspectRatio = 135 / 35
+    fa.Parent = f
+
+    local s = Instance.new("UIStroke")
+    s.Color = Color3.fromRGB(33, 32, 38)
+    s.Thickness = 1.6
+    s.Parent = f
+
+    local c = Instance.new("UICorner")
+    c.CornerRadius = UDim.new(0, 12)
+    c.Parent = f
+
+    local minimize = Instance.new("TextButton")
+    minimize.BackgroundColor3 = run
+    minimize.BorderSizePixel = 0
+    minimize.FontFace = Default
+    minimize.TextSize = 24
+    minimize.Position = UDim2.new(0, 8, 0, 5)
+    minimize.Size = UDim2.new(0, 55, 0, 25)
+    minimize.Text = "-"
+    minimize.TextColor3 = d
+    minimize.AutoButtonColor = false
+    minimize.Parent = f
+
+    local mc = Instance.new("UICorner")
+    mc.CornerRadius = UDim.new(0, 8)
+    mc.Parent = minimize
+
+    local close = Instance.new("TextButton")
+    close.BackgroundColor3 = run
+    close.BorderSizePixel = 0
+    close.FontFace = Default
+    close.TextSize = 24
+    close.Position = UDim2.new(1, -63, 0, 5)
+    close.Size = UDim2.new(0, 55, 0, 25)
+    close.Text = "×"
+    close.TextColor3 = d
+    close.AutoButtonColor = false
+    close.Parent = f
+
+    local cc = Instance.new("UICorner")
+    cc.CornerRadius = UDim.new(0, 8)
+    cc.Parent = close
+
+    local of = Instance.new("Frame")
+    of.BackgroundColor3 = Color3.fromRGB(12, 12, 14)
+    of.Position = UDim2.new(0.414, 0, 0.034, 0)
+    of.Size = UDim2.new(0.162, 0, 0.06, 0)
+    of.Parent = screengui
+
+    local oc = Instance.new("UICorner")
+    oc.CornerRadius = UDim.new(0, 12)
+    oc.Parent = of
+
+    local os = Instance.new("UIStroke")
+    os.Color = Color3.fromRGB(33, 32, 38)
+    os.Thickness = 1.299
+    os.Parent = of
+
+    local ot = Instance.new("TextLabel")
+    ot.BackgroundTransparency = 1
+    ot.FontFace = Default
+    ot.TextSize = 24
+    ot.Size = UDim2.new(1, 0, 1, 0)
+    ot.Text = "Open"
+    ot.TextColor3 = w
+    ot.TextXAlignment = Enum.TextXAlignment.Center
+    ot.TextYAlignment = Enum.TextYAlignment.Center
+    ot.Parent = of
+
+    local ob = Instance.new("TextButton")
+    ob.BackgroundTransparency = 1
+    ob.Text = ""
+    ob.Size = UDim2.new(1, 0, 1, 0)
+    ob.Parent = of
+
+    of.Visible = false
+
+    minimize.MouseButton1Click:Connect(function()
+        local info = TweenInfo.new(
+            0.25,
+            Enum.EasingStyle.Quint,
+            Enum.EasingDirection.In
+        )
+
+        local shrink = TweenService:Create(
+            frame,
+            info,
+            {
+                Size = UDim2.new(0, smallWidth, 0, smallHeight),
+                BackgroundTransparency = 1
+            }
+        )
+
+        TweenService:Create(stroke, info, {
+            Transparency = 1
+        }):Play()
+
+        TweenService:Create(title, info, {
+            TextTransparency = 1
+        }):Play()
+
+        TweenService:Create(desc, info, {
+            TextTransparency = 1
+        }):Play()
+
+        shrink:Play()
+        shrink.Completed:Wait()
+
+        frame.Visible = false
+        of.Visible = true
+
+        frame.Size = UDim2.new(0, fullWidth, 0, fullHeight)
+        frame.BackgroundTransparency = 0
+        stroke.Transparency = 0
+        title.TextTransparency = 0
+        desc.TextTransparency = 0
+    end)
+
+    ob.MouseButton1Click:Connect(function()
+        of.Visible = false
+        frame.Visible = true
+
+        frame.Size = UDim2.new(0, smallWidth, 0, smallHeight)
+        frame.BackgroundTransparency = 1
+        stroke.Transparency = 1
+        title.TextTransparency = 1
+        desc.TextTransparency = 1
+
+        local info = TweenInfo.new(
+            0.3,
+            Enum.EasingStyle.Quint,
+            Enum.EasingDirection.Out
+        )
+
+        TweenService:Create(frame, info, {
+            Size = UDim2.new(0, fullWidth, 0, fullHeight),
+            BackgroundTransparency = 0
+        }):Play()
+
+        TweenService:Create(stroke, info, {
+            Transparency = 0
+        }):Play()
+
+        TweenService:Create(title, info, {
+            TextTransparency = 0
+        }):Play()
+
+        TweenService:Create(desc, info, {
+            TextTransparency = 0
+        }):Play()
+    end)
+
+    local dialogOverlay = Instance.new("Frame")
+    dialogOverlay.Name = "DialogOverlay"
+    dialogOverlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    dialogOverlay.BackgroundTransparency = 0.55
+    dialogOverlay.BorderSizePixel = 0
+    dialogOverlay.Size = UDim2.new(1, 0, 1, 0)
+    dialogOverlay.Visible = false
+    dialogOverlay.ZIndex = 50
+    dialogOverlay.Parent = frame
+	
+	    local dialogOverlayCorner = Instance.new("UICorner")
+	    dialogOverlayCorner.CornerRadius = UDim.new(0, 11)
+	    dialogOverlayCorner.Parent = dialogOverlay
+
+    local dialog = Instance.new("Frame")
+    dialog.Name = "Dialog"
+    dialog.AnchorPoint = Vector2.new(0.5, 0.5)
+    dialog.BackgroundColor3 = Color3.fromRGB(12, 12, 14)
+    dialog.BorderSizePixel = 0
+    dialog.Position = UDim2.new(0.5, 0, 0.5, 0)
+    dialog.Size = UDim2.new(0, 320, 0, 165)
+    dialog.ZIndex = 51
+    dialog.Parent = dialogOverlay
+
+    local dialogCorner = Instance.new("UICorner")
+    dialogCorner.CornerRadius = UDim.new(0, 11)
+    dialogCorner.Parent = dialog
+
+    local dialogStroke = Instance.new("UIStroke")
+    dialogStroke.Color = Color3.fromRGB(33, 32, 38)
+    dialogStroke.Thickness = 1.6
+    dialogStroke.Parent = dialog
+
+    local dialogTitle = Instance.new("TextLabel")
+    dialogTitle.BackgroundTransparency = 1
+    dialogTitle.FontFace = Default
+    dialogTitle.Position = UDim2.new(0, 18, 0, 15)
+    dialogTitle.Size = UDim2.new(1, -36, 0, 28)
+    dialogTitle.Text = "Close Window?"
+    dialogTitle.TextColor3 = w
+    dialogTitle.TextSize = 20
+    dialogTitle.TextXAlignment = Enum.TextXAlignment.Left
+    dialogTitle.ZIndex = 52
+    dialogTitle.Parent = dialog
+
+    local dialogDesc = Instance.new("TextLabel")
+    dialogDesc.BackgroundTransparency = 1
+    dialogDesc.FontFace = Default
+    dialogDesc.Position = UDim2.new(0, 18, 0, 48)
+    dialogDesc.Size = UDim2.new(1, -36, 0, 38)
+    dialogDesc.Text = "This action cannot be undone."
+    dialogDesc.TextColor3 = d
+    dialogDesc.TextSize = 14
+    dialogDesc.TextWrapped = true
+    dialogDesc.TextXAlignment = Enum.TextXAlignment.Left
+    dialogDesc.ZIndex = 52
+    dialogDesc.Parent = dialog
+
+    local cancel = Instance.new("TextButton")
+    cancel.BackgroundColor3 = run
+    cancel.BorderSizePixel = 0
+    cancel.FontFace = Default
+    cancel.Position = UDim2.new(0, 18, 1, -50)
+    cancel.Size = UDim2.new(0, 125, 0, 34)
+    cancel.Text = "Cancel"
+    cancel.TextColor3 = w
+    cancel.TextSize = 14
+    cancel.AutoButtonColor = false
+    cancel.ZIndex = 52
+    cancel.Parent = dialog
+
+    local cancelCorner = Instance.new("UICorner")
+    cancelCorner.CornerRadius = UDim.new(0, 8)
+    cancelCorner.Parent = cancel
+
+    local confirm = Instance.new("TextButton")
+    confirm.BackgroundColor3 = run
+    confirm.BorderSizePixel = 0
+    confirm.FontFace = Default
+    confirm.AnchorPoint = Vector2.new(1, 0)
+    confirm.Position = UDim2.new(1, -18, 1, -50)
+    confirm.Size = UDim2.new(0, 125, 0, 34)
+    confirm.Text = "Close"
+    confirm.TextColor3 = w
+    confirm.TextSize = 14
+    confirm.AutoButtonColor = false
+    confirm.ZIndex = 52
+    confirm.Parent = dialog
+
+    local confirmCorner = Instance.new("UICorner")
+    confirmCorner.CornerRadius = UDim.new(0, 8)
+    confirmCorner.Parent = confirm
+
+    local dialogScale = Instance.new("UIScale")
+    dialogScale.Scale = 0.85
+    dialogScale.Parent = dialog
+
+    local function openDialog()
+        dialogOverlay.Visible = true
+        dialogScale.Scale = 0.85
+        dialog.BackgroundTransparency = 1
+        dialogStroke.Transparency = 1
+        dialogTitle.TextTransparency = 1
+        dialogDesc.TextTransparency = 1
+        cancel.BackgroundTransparency = 1
+        cancel.TextTransparency = 1
+        confirm.BackgroundTransparency = 1
+        confirm.TextTransparency = 1
+
+        TweenService:Create(
+            dialogScale,
+            TweenInfo.new(
+                0.22,
+                Enum.EasingStyle.Back,
+                Enum.EasingDirection.Out
+            ),
+            {
+                Scale = 1
+            }
+        ):Play()
+
+        TweenService:Create(
+            dialog,
+            TweenInfo.new(
+                0.18,
+                Enum.EasingStyle.Quad,
+                Enum.EasingDirection.Out
+            ),
+            {
+                BackgroundTransparency = 0
+            }
+        ):Play()
+
+        TweenService:Create(
+            dialogStroke,
+            TweenInfo.new(
+                0.18,
+                Enum.EasingStyle.Quad,
+                Enum.EasingDirection.Out
+            ),
+            {
+                Transparency = 0
+            }
+        ):Play()
+
+        TweenService:Create(
+            dialogTitle,
+            TweenInfo.new(
+                0.2,
+                Enum.EasingStyle.Quad,
+                Enum.EasingDirection.Out
+            ),
+            {
+                TextTransparency = 0
+            }
+        ):Play()
+
+        TweenService:Create(
+            dialogDesc,
+            TweenInfo.new(
+                0.2,
+                Enum.EasingStyle.Quad,
+                Enum.EasingDirection.Out
+            ),
+            {
+                TextTransparency = 0
+            }
+        ):Play()
+
+        TweenService:Create(
+            cancel,
+            TweenInfo.new(
+                0.2,
+                Enum.EasingStyle.Quad,
+                Enum.EasingDirection.Out
+            ),
+            {
+                BackgroundTransparency = 0,
+                TextTransparency = 0
+            }
+        ):Play()
+
+        TweenService:Create(
+            confirm,
+            TweenInfo.new(
+                0.2,
+                Enum.EasingStyle.Quad,
+                Enum.EasingDirection.Out
+            ),
+            {
+                BackgroundTransparency = 0,
+                TextTransparency = 0
+            }
+        ):Play()
+    end
+
+    local function closeDialog()
+        local info = TweenInfo.new(
+            0.16,
+            Enum.EasingStyle.Quint,
+            Enum.EasingDirection.In
+        )
+
+        TweenService:Create(dialogScale, info, {
+            Scale = 0.85
+        }):Play()
+
+        TweenService:Create(dialog, info, {
+            BackgroundTransparency = 1
+        }):Play()
+
+        TweenService:Create(dialogStroke, info, {
+            Transparency = 1
+        }):Play()
+
+        TweenService:Create(dialogTitle, info, {
+            TextTransparency = 1
+        }):Play()
+
+        TweenService:Create(dialogDesc, info, {
+            TextTransparency = 1
+        }):Play()
+
+        TweenService:Create(cancel, info, {
+            BackgroundTransparency = 1,
+            TextTransparency = 1
+        }):Play()
+
+        TweenService:Create(confirm, info, {
+            BackgroundTransparency = 1,
+            TextTransparency = 1
+        }):Play()
+
+        task.wait(0.17)
+        dialogOverlay.Visible = false
+    end
+
+    close.MouseButton1Click:Connect(openDialog)
+    cancel.MouseButton1Click:Connect(closeDialog)
+
+    confirm.MouseButton1Click:Connect(function()
+        closeDialog()
+
+        local info = TweenInfo.new(
+            0.25,
+            Enum.EasingStyle.Quint,
+            Enum.EasingDirection.In
+        )
+
+        local shrink = TweenService:Create(
+            frame,
+            info,
+            {
+                Size = UDim2.new(0, smallWidth, 0, smallHeight),
+                BackgroundTransparency = 1
+            }
+        )
+
+        TweenService:Create(stroke, info, {
+            Transparency = 1
+        }):Play()
+
+        TweenService:Create(title, info, {
+            TextTransparency = 1
+        }):Play()
+
+        TweenService:Create(desc, info, {
+            TextTransparency = 1
+        }):Play()
+
+        shrink:Play()
+        shrink.Completed:Wait()
+
+        frame.Visible = false
+    end)
+
+    local tabf = Instance.new("ScrollingFrame")
+    tabf.Name = "Tabs"
+    tabf.BackgroundTransparency = 1
+    tabf.BorderSizePixel = 0
+    tabf.Position = UDim2.new(0, 12, 0, 56)
+    tabf.Size = UDim2.new(0, 155, 1, -68)
+    tabf.CanvasSize = UDim2.new(0, 0, 0, 0)
+    tabf.AutomaticCanvasSize = Enum.AutomaticSize.Y
+    tabf.ScrollBarThickness = 3
+    tabf.ScrollBarImageTransparency = 0.4
+    tabf.ScrollingDirection = Enum.ScrollingDirection.Y
+    tabf.Parent = frame
+
+    local tc = Instance.new("UICorner")
+    tc.CornerRadius = UDim.new(0, 9)
+    tc.Parent = tabf
+
+    local ts = Instance.new("UIStroke")
+    ts.Color = Color3.fromRGB(33, 32, 38)
+    ts.Thickness = 1.4
+    ts.Parent = tabf
+
+    local tabPadding = Instance.new("UIPadding")
+    tabPadding.PaddingTop = UDim.new(0, 8)
+    tabPadding.PaddingBottom = UDim.new(0, 8)
+    tabPadding.PaddingLeft = UDim.new(0, 8)
+    tabPadding.PaddingRight = UDim.new(0, 8)
+    tabPadding.Parent = tabf
+
+    local tabLayout = Instance.new("UIListLayout")
+    tabLayout.Padding = UDim.new(0, 7)
+    tabLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    tabLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    tabLayout.Parent = tabf
+
+    local tabs = {}
+    local tabCount = 0
+
+    function Window:CreateTab(tabName)
+        local Tab = {}
+
+        tabCount += 1
+
+        local tabButton = Instance.new("TextButton")
+        tabButton.Name = tabName .. "Tab"
+        tabButton.BackgroundColor3 = Color3.fromRGB(35, 34, 40)
+        tabButton.BackgroundTransparency = 1
+        tabButton.BorderSizePixel = 0
+        tabButton.Size = UDim2.new(1, -16, 0, 40)
+        tabButton.LayoutOrder = tabCount
+        tabButton.FontFace = Default
+        tabButton.Text = tabName
+        tabButton.TextColor3 = d
+        tabButton.TextSize = 15.5
+        tabButton.TextXAlignment = Enum.TextXAlignment.Center
+        tabButton.TextYAlignment = Enum.TextYAlignment.Center
+        tabButton.AutoButtonColor = false
+        tabButton.Parent = tabf
+
+        local tabcorner = Instance.new("UICorner")
+        tabcorner.CornerRadius = UDim.new(0, 10)
+        tabcorner.Parent = tabButton
+
+        local content = Instance.new("ScrollingFrame")
+        content.Name = tabName .. "Content"
+        content.BackgroundTransparency = 1
+        content.BorderSizePixel = 0
+        content.Position = UDim2.new(0, 179, 0, 56)
+        content.Size = UDim2.new(1, -191, 1, -68)
+        content.CanvasSize = UDim2.new(0, 0, 0, 0)
+        content.AutomaticCanvasSize = Enum.AutomaticSize.Y
+        content.ScrollBarThickness = 3
+        content.ScrollBarImageTransparency = 0.4
+        content.ScrollingDirection = Enum.ScrollingDirection.Y
+        content.Visible = false
+        content.Parent = frame
+
+        local contentPadding = Instance.new("UIPadding")
+        contentPadding.PaddingLeft = UDim.new(0, 3)
+        contentPadding.PaddingRight = UDim.new(0, 5)
+        contentPadding.PaddingTop = UDim.new(0, 3)
+        contentPadding.PaddingBottom = UDim.new(0, 10)
+        contentPadding.Parent = content
+
+        local contentLayout = Instance.new("UIListLayout")
+        contentLayout.Padding = UDim.new(0, 8)
+        contentLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        contentLayout.Parent = content
+
+        local tabData = {
+            Button = tabButton,
+            Content = content
+        }
+
+        tabs[tabName] = tabData
+
+        local function selectTab()
+            for _, tab in pairs(tabs) do
+                tab.Content.Visible = false
+
+                TweenService:Create(
+                    tab.Button,
+                    TweenInfo.new(
+                        0.15,
+                        Enum.EasingStyle.Quad,
+                        Enum.EasingDirection.Out
+                    ),
+                    {
+                        BackgroundTransparency = 1,
+                        TextColor3 = d
+                    }
+                ):Play()
+            end
+
+            content.Visible = true
+
+            TweenService:Create(
+                tabButton,
+                TweenInfo.new(
+                    0.15,
+                    Enum.EasingStyle.Quad,
+                    Enum.EasingDirection.Out
+                ),
+                {
+                    BackgroundTransparency = 0.6,
+                    TextColor3 = w
+                }
+            ):Play()
+        end
+
+        tabButton.MouseButton1Click:Connect(selectTab)
+
+        function Tab:Select()
+            selectTab()
+        end
+
+        function Tab:Button(options)
+            options = options or {}
+
+            local buttonObject = {}
+
+            local card = Instance.new("Frame")
+            card.Name = "ButtonCard"
+            card.BackgroundColor3 = Color3.fromRGB(18, 17, 22)
+            card.BorderSizePixel = 0
+            card.Size = UDim2.new(1, 0, 0, 58)
+            card.LayoutOrder = options.LayoutOrder or 1
+            card.Parent = content
+
+            local cardCorner = Instance.new("UICorner")
+            cardCorner.CornerRadius = UDim.new(0, 9)
+            cardCorner.Parent = card
+
+            local cardStroke = Instance.new("UIStroke")
+            cardStroke.Color = Color3.fromRGB(33, 32, 38)
+            cardStroke.Thickness = 1.4
+            cardStroke.Parent = card
+
+            local buttonTitle = Instance.new("TextLabel")
+            buttonTitle.BackgroundTransparency = 1
+            buttonTitle.Position = UDim2.new(0, 14, 0, 4)
+            buttonTitle.Size = UDim2.new(1, -105, 0, 25)
+            buttonTitle.FontFace = Default
+            buttonTitle.Text = options.Name or "Button"
+            buttonTitle.TextColor3 = w
+            buttonTitle.TextSize = 18
+            buttonTitle.TextXAlignment = Enum.TextXAlignment.Left
+            buttonTitle.Parent = card
+
+            local buttonDescription = Instance.new("TextLabel")
+            buttonDescription.BackgroundTransparency = 1
+            buttonDescription.Position = UDim2.new(0, 14, 0, 32)
+            buttonDescription.Size = UDim2.new(1, -105, 0, 18)
+            buttonDescription.FontFace = Default
+            buttonDescription.Text = options.Description or ""
+            buttonDescription.TextColor3 = d
+            buttonDescription.TextSize = 14
+            buttonDescription.TextXAlignment = Enum.TextXAlignment.Left
+            buttonDescription.Parent = card
+
+            local button = Instance.new("TextButton")
+            button.Name = "Run"
+            button.BackgroundColor3 = run
+            button.BorderSizePixel = 0
+            button.FontFace = Default
+            button.AnchorPoint = Vector2.new(1, 0.5)
+            button.Position = UDim2.new(1, -10, 0.5, 0)
+            button.Size = UDim2.new(0, 60, 0, 30)
+            button.Text = "Run"
+            button.TextColor3 = w
+            button.TextSize = 14
+            button.AutoButtonColor = true
+            button.Parent = card
+
+            local buttonCorner = Instance.new("UICorner")
+            buttonCorner.CornerRadius = UDim.new(0, 8)
+            buttonCorner.Parent = button
+
+            buttonObject.State = options.State or false
+            buttonObject.Value = buttonObject.State
+
+            function buttonObject:GetValue()
+                return buttonObject.Value
+            end
+
+            function buttonObject:SetValue(value)
+                buttonObject.State = value
+                buttonObject.Value = value
+            end
+
+            button.MouseButton1Click:Connect(function()
+                buttonObject.State = true
+                buttonObject.Value = true
+
+                if options.Callback then
+                    options.Callback(buttonObject.Value)
+                end
+            end)
+
+            return buttonObject
+        end
+
+        function Tab:Toggle(options)
+            options = options or {}
+
+            local toggleObject = {}
+
+            local card = Instance.new("Frame")
+            card.Name = "ToggleCard"
+            card.BackgroundColor3 = Color3.fromRGB(18, 17, 22)
+            card.BorderSizePixel = 0
+            card.Size = UDim2.new(1, 0, 0, 58)
+            card.LayoutOrder = options.LayoutOrder or 1
+            card.Parent = content
+
+            local cardCorner = Instance.new("UICorner")
+            cardCorner.CornerRadius = UDim.new(0, 9)
+            cardCorner.Parent = card
+
+            local cardStroke = Instance.new("UIStroke")
+            cardStroke.Color = Color3.fromRGB(33, 32, 38)
+            cardStroke.Thickness = 1.4
+            cardStroke.Parent = card
+
+            local toggleTitle = Instance.new("TextLabel")
+            toggleTitle.BackgroundTransparency = 1
+            toggleTitle.Position = UDim2.new(0, 14, 0, 4)
+            toggleTitle.Size = UDim2.new(1, -90, 0, 25)
+            toggleTitle.FontFace = Default
+            toggleTitle.Text = options.Name or "Toggle"
+            toggleTitle.TextColor3 = w
+            toggleTitle.TextSize = 18
+            toggleTitle.TextXAlignment = Enum.TextXAlignment.Left
+            toggleTitle.Parent = card
+
+            local toggleDescription = Instance.new("TextLabel")
+            toggleDescription.BackgroundTransparency = 1
+            toggleDescription.Position = UDim2.new(0, 14, 0, 32)
+            toggleDescription.Size = UDim2.new(1, -90, 0, 18)
+            toggleDescription.FontFace = Default
+            toggleDescription.Text = options.Description or ""
+            toggleDescription.TextColor3 = d
+            toggleDescription.TextSize = 14
+            toggleDescription.TextXAlignment = Enum.TextXAlignment.Left
+            toggleDescription.Parent = card
+
+            local toggleButton = Instance.new("TextButton")
+            toggleButton.Name = "Toggle"
+            toggleButton.BackgroundColor3 = run
+            toggleButton.BorderSizePixel = 0
+            toggleButton.AnchorPoint = Vector2.new(1, 0.5)
+            toggleButton.Position = UDim2.new(1, -10, 0.5, 0)
+            toggleButton.Size = UDim2.new(0, 48, 0, 26)
+            toggleButton.Text = ""
+            toggleButton.AutoButtonColor = false
+            toggleButton.Parent = card
+
+            local toggleButtonCorner = Instance.new("UICorner")
+            toggleButtonCorner.CornerRadius = UDim.new(1, 0)
+            toggleButtonCorner.Parent = toggleButton
+
+            local knob = Instance.new("Frame")
+            knob.Name = "Knob"
+            knob.BackgroundColor3 = Color3.fromRGB(125, 125, 130)
+            knob.BorderSizePixel = 0
+            knob.AnchorPoint = Vector2.new(0, 0.5)
+            knob.Position = UDim2.new(0, 4, 0.5, 0)
+            knob.Size = UDim2.new(0, 18, 0, 18)
+            knob.Parent = toggleButton
+
+            local knobCorner = Instance.new("UICorner")
+            knobCorner.CornerRadius = UDim.new(1, 0)
+            knobCorner.Parent = knob
+
+            toggleObject.Value = options.Default or false
+            toggleObject.State = toggleObject.Value
+
+            local function updateToggle()
+                local backgroundColor = toggleObject.Value and Color3.fromRGB(55, 54, 61) or run
+                local knobColor = toggleObject.Value and knobcolor or Color3.fromRGB(125, 125, 130)
+                local targetPosition = toggleObject.Value
+                    and UDim2.new(1, -22, 0.5, 0)
+                    or UDim2.new(0, 4, 0.5, 0)
+
+                TweenService:Create(
+                    toggleButton,
+                    TweenInfo.new(
+                        0.2,
+                        Enum.EasingStyle.Quad,
+                        Enum.EasingDirection.Out
+                    ),
+                    {
+                        BackgroundColor3 = backgroundColor
+                    }
+                ):Play()
+
+                TweenService:Create(
+                    knob,
+                    TweenInfo.new(
+                        0.2,
+                        Enum.EasingStyle.Quad,
+                        Enum.EasingDirection.Out
+                    ),
+                    {
+                        Position = targetPosition,
+                        BackgroundColor3 = knobColor
+                    }
+                ):Play()
+            end
+
+            function toggleObject:GetValue()
+                return toggleObject.Value
+            end
+
+            function toggleObject:SetValue(value)
+                toggleObject.Value = value
+                toggleObject.State = value
+
+                updateToggle()
+
+                if options.Callback then
+                    options.Callback(value)
+                end
+            end
+
+            toggleButton.MouseButton1Click:Connect(function()
+                toggleObject.Value = not toggleObject.Value
+                toggleObject.State = toggleObject.Value
+
+                updateToggle()
+
+                if options.Callback then
+                    options.Callback(toggleObject.Value)
+                end
+            end)
+
+            updateToggle()
+
+            return toggleObject
+        end
+
+        if tabCount == 1 then
+            selectTab()
+        end
+
+        return Tab
+    end
+
+    function Window:Destroy()
+        screengui:Destroy()
+    end
+
+    function Window:Minimize()
+        if frame.Visible then
+            minimize:Activate()
+        end
+    end
+
+    function Window:Open()
+        if not frame.Visible then
+            ob:Activate()
+        end
+    end
+
+    task.defer(function()
+        frame.Size = UDim2.new(0, smallWidth, 0, smallHeight)
+        frame.BackgroundTransparency = 1
+        stroke.Transparency = 1
+        title.TextTransparency = 1
+        desc.TextTransparency = 1
+
+        TweenService:Create(
+            frame,
+            TweenInfo.new(
+                0.3,
+                Enum.EasingStyle.Quint,
+                Enum.EasingDirection.Out
+            ),
+            {
+                Size = UDim2.new(0, fullWidth, 0, fullHeight),
+                BackgroundTransparency = 0
+            }
+        ):Play()
+
+        TweenService:Create(
+            stroke,
+            TweenInfo.new(
+                0.3,
+                Enum.EasingStyle.Quint,
+                Enum.EasingDirection.Out
+            ),
+            {
+                Transparency = 0
+            }
+        ):Play()
+
+        TweenService:Create(
+            title,
+            TweenInfo.new(
+                0.3,
+                Enum.EasingStyle.Quint,
+                Enum.EasingDirection.Out
+            ),
+            {
+                TextTransparency = 0
+            }
+        ):Play()
+
+        TweenService:Create(
+            desc,
+            TweenInfo.new(
+                0.3,
+                Enum.EasingStyle.Quint,
+                Enum.EasingDirection.Out
+            ),
+            {
+                TextTransparency = 0
+            }
+        ):Play()
+    end)
+
+    return Window
+end
+
+return BreezeUI
