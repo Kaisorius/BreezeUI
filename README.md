@@ -83,7 +83,7 @@ BreezeUI is a beta UI library created by Kaiser / Kaisorius.
 Bugs may occur. Stay updated for future improvements.
 
 ## License
-BreezeUI is an Attribution-Required Free Model protected by the MIT License.
+BreezeUI is an Open Source UI Library protected by the MIT License.
 
 Copyright © 2026 Kaiser.
 
