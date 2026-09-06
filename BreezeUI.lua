@@ -16,6 +16,12 @@ ____  ____  _____  _____  _____  _____  _   _ ___
 
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+
+local dragging = false
+local dragInput
+local dragStart
+local startPosition
 local player = Players.LocalPlayer
 
 local BreezeUI = {}
@@ -104,10 +110,62 @@ function BreezeUI:CreateWindow(options)
     desc.TextYAlignment = Enum.TextYAlignment.Top
     desc.Parent = frame
 
+title.Active = true
+desc.Active = true
+    
+local dragHandle = Instance.new("Frame")
+dragHandle.Name = "DragHandle"
+dragHandle.BackgroundTransparency = 1
+dragHandle.BorderSizePixel = 0
+dragHandle.Position = UDim2.new(0, 0, 0, 0)
+dragHandle.Size = UDim2.new(1, 0, 0, 40)
+dragHandle.ZIndex = 5
+dragHandle.Active = true
+dragHandle.Parent = frame
+
+local function updateDrag(input)
+    local delta = input.Position - dragStart
+
+    frame.Position = UDim2.new(
+        startPosition.X.Scale,
+        startPosition.X.Offset + delta.X,
+        startPosition.Y.Scale,
+        startPosition.Y.Offset + delta.Y
+    )
+end
+
+local function beginDrag(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1
+        or input.UserInputType == Enum.UserInputType.Touch then
+
+        dragging = true
+        dragStart = input.Position
+        startPosition = frame.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end
+
+local function handleInput(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement
+        or input.UserInputType == Enum.UserInputType.Touch then
+
+        dragInput = input
+    end
+end
+
+dragHandle.InputBegan:Connect(beginDrag)
+dragHandle.InputChanged:Connect(handleInput)
+
     local f = Instance.new("Frame")
     f.BackgroundTransparency = 1
     f.Position = UDim2.new(1, -145, 0, 8)
     f.Size = UDim2.new(0, 135, 0, 35)
+    f.ZIndex = 10
     f.Parent = frame
 
     local fa = Instance.new("UIAspectRatioConstraint")
@@ -133,6 +191,7 @@ function BreezeUI:CreateWindow(options)
     minimize.Text = "-"
     minimize.TextColor3 = d
     minimize.AutoButtonColor = false
+    minimize.ZIndex = 11
     minimize.Parent = f
 
     local mc = Instance.new("UICorner")
@@ -149,6 +208,7 @@ function BreezeUI:CreateWindow(options)
     close.Text = "×"
     close.TextColor3 = d
     close.AutoButtonColor = false
+    close.ZIndex = 11
     close.Parent = f
 
     local cc = Instance.new("UICorner")
@@ -577,6 +637,7 @@ function BreezeUI:CreateWindow(options)
 
     local tabs = {}
     local tabCount = 0
+    local activeTweens = {}
 
     function Window:CreateTab(tabName)
         local Tab = {}
@@ -637,38 +698,29 @@ function BreezeUI:CreateWindow(options)
         tabs[tabName] = tabData
 
         local function selectTab()
-            for _, tab in pairs(tabs) do
-                tab.Content.Visible = false
+    for name, tab in pairs(tabs) do
+        tab.Content.Visible = false
 
-                TweenService:Create(
-                    tab.Button,
-                    TweenInfo.new(
-                        0.15,
-                        Enum.EasingStyle.Quad,
-                        Enum.EasingDirection.Out
-                    ),
-                    {
-                        BackgroundTransparency = 1,
-                        TextColor3 = d
-                    }
-                ):Play()
-            end
-
-            content.Visible = true
-
-            TweenService:Create(
-                tabButton,
-                TweenInfo.new(
-                    0.15,
-                    Enum.EasingStyle.Quad,
-                    Enum.EasingDirection.Out
-                ),
-                {
-                    BackgroundTransparency = 0.6,
-                    TextColor3 = w
-                }
-            ):Play()
+        if activeTweens[name] then
+            activeTweens[name]:Cancel()
+            activeTweens[name] = nil
         end
+
+        tab.Button.BackgroundTransparency = 1
+        tab.Button.TextColor3 = d
+    end
+
+    content.Visible = true
+
+    local tween = TweenService:Create(
+        tabButton,
+        TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+        { BackgroundTransparency = 0.6, TextColor3 = w }
+    )
+
+    activeTweens[tabName] = tween
+    tween:Play()
+end
 
         tabButton.MouseButton1Click:Connect(selectTab)
 
@@ -980,6 +1032,52 @@ function BreezeUI:CreateWindow(options)
             }
         ):Play()
     end)
+    
+    local dragConnection = UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        updateDrag(input)
+    end
+end)
+    
+    function Window:Destroy()
+        local info = TweenInfo.new(
+            0.25,
+            Enum.EasingStyle.Quint,
+            Enum.EasingDirection.In
+        )
+
+        local shrink = TweenService:Create(
+            frame,
+            info,
+            {
+                Size = UDim2.new(0, smallWidth, 0, smallHeight),
+                BackgroundTransparency = 1
+            }
+        )
+
+        TweenService:Create(stroke, info, {
+            Transparency = 1
+        }):Play()
+
+        TweenService:Create(title, info, {
+            TextTransparency = 1
+        }):Play()
+
+        TweenService:Create(desc, info, {
+            TextTransparency = 1
+        }):Play()
+
+        shrink:Play()
+        shrink.Completed:Wait()
+        
+        dragConnection:Disconnect()
+        screengui:Destroy()
+    end
+    
+    function ResetPos()
+        frame.AnchorPoint = Vector2.new(0.5, 0.5)
+        frame.Position = UDim2.fromScale(0.5, 0.5)
+    end
 
     return Window
 end
